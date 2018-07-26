@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "../lib/nearest_coffee_shop"
+
+NearestCoffeeShop::CLI.new.call
