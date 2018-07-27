@@ -33,6 +33,10 @@ class NearestCoffeeShop::CLI
     end
   end
 
+  def ask_for_zip
+
+  end
+
   def check_valid?(input)
     if input.length == 5 && input.scan(/\D/).empty?
       true
@@ -44,9 +48,11 @@ class NearestCoffeeShop::CLI
   def list_results
     puts
     puts "----------------------------Nearby Coffee Shops----------------------------"
-    puts "1. Starbucks - 1364 Centennial Ave - 4.2 stars - OPEN"
-    puts "2. Tea Time - 201 Circle Dr N - 4.2 stars - OPEN"
-    puts "3. OQ Coffee: Shop and Roastery - 13 S 3rd Ave Suite C - 4.6 stars - OPEN"
+    # iterator that displays each object
+    results = NearestCoffeeShop::Shop.results
+    results.each.with_index(1) do |shop, index|
+      puts "#{index}. #{shop.name} - #{shop.address} - #{shop.rating} - #{shop.status}"
+    end
     puts "---------------------------------------------------------------------------"
     puts
     puts "To learn more about each location, enter the corresponding number, or type 'exit' to quit."
